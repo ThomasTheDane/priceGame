@@ -10,6 +10,7 @@ var mongoose = require("mongoose");
 var amazon = require('amazon-product-api');
 
 var index = require("./routes/index");
+var amazonApi = require("./routes/amazonApi")
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", index.home);
+app.get("/aProduct/:type", amazonApi.getProduct)
 
 mongoose.connect(mongoURI);
 
@@ -36,32 +38,9 @@ app.listen(PORT, function() {
 });
 
 
-function getRandomProduct(){
-  var productCategories = [
-		{name: "Appliances", ID: "2619526011"},
-		{name: "Baby", ID: "165797011"},
-		{name: "Cell Phones & Accessories", ID: "2335753011"}
-	]
 
-	var productCategory = productCategories[Math.floor(Math.random()*productCategories.length)];
 
-	var client = amazon.createClient({
-	  awsId: process.env.AWSAccessKeyId,
-	  awsSecret: process.env.AWSSecretKey,
-	  awsTag: "nattestad-20"
-	});
 
-	client.itemSearch({
-	  searchIndex: 'Books',
-	  sort:"salesrank",
-	  BrowseNode:productCategory.ID,
-	  responseGroup: 'ItemAttributes,Offers,Images'
-	}).then(function(results){
-		console.log(JSON.stringify(results));
-	  return results[Math.floor(Math.random()*results.length)]
-	}).catch(function(err){
-		console.log(JSON.stringify(err));
-	});
-}
+
 
 

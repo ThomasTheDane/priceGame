@@ -1,0 +1,93 @@
+div{
+	// border: 1px solid black;
+}
+
+.title{
+	text-align: center;
+}
+
+#instructions{
+	text-align: center;
+	margin-bottom: 10px;
+	color: grey;
+}
+
+#startGameContainer{
+	text-align: center;
+}
+
+#gameTop{
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.strike{
+	width: 20px;
+}
+
+#scoreContainer{
+	text-align: right;
+	width: 200px;
+	float: right;
+	font-size: 1.5em;
+}
+
+#READHEREYOU{
+	display: none;
+}
+
+#gameContainer{
+	// display: none;
+}
+
+#productTitleArea{
+	text-align: center;
+	margin: 0px;
+	font-size: 1.3em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#productImageContainer{
+	text-align: center;
+	margin: 0px;
+	cursor: pointer;
+}
+
+#productImage{
+	height: 300px;
+	max-width: 500px;
+}
+
+.aPriceButton{
+	height: 70px;
+	margin: 5px;
+	width: 150px;
+}
+
+#priceButton1, #priceButton3{
+	float: right
+}
+
+#priceButton2, #priceButton4{
+	float: left
+}
+
+
+.priceButtonContainer{
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.oldPrice{
+    text-decoration: line-through;
+    color: grey;
+    font-size: 1.2em;
+}
+
+.price{
+	font-weight: bold;
+	font-size: 1.5em;
+}
+

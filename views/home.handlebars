@@ -1,1 +1,62 @@
-<h1>Price Quiz</h1>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+
+<script src="js/home.js"></script>
+
+<div class="container">
+	<h1 class="title">Price Quizzer</h1>
+	<div id="startGameContainer">
+
+		<div id="instructions">Guess what these items sell for on Amazon. Get as many right before getting 3 wrong</div>
+
+		<button type="button" id="startSoloGame" class="btn btn-success">Start a Game</button>
+	</div>
+	<div id="gameContainer">
+		<div class="row" id="gameTop">
+			<div class="col-sm-6 col-sm-offset-3">
+				<img id="strike1" class="strike" src="images/emptyStrike.png">
+				<img id="strike2" class="strike" src="images/emptyStrike.png">
+				<img id="strike3" class="strike" src="images/emptyStrike.png">
+				<div id="scoreContainer">Score: 0</div>
+			</div>
+		</div>
+		
+		<div class="row" id="productImageContainer" >
+			<img src="" id="productImage">
+		</div>
+
+		<div class="row" id="productTitleArea">
+			<div class="col-sm-6 col-sm-offset-3" id="productTitle">
+				
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3 col-sm-offset-3 priceButtonContainer">
+				<button type="button" class="btn btn-default aPriceButton" id="priceButton1">
+					<div class="oldPrice">27.00</div>
+					<div class="price">24.40</div>
+				</button>
+			</div>
+			<div class="col-sm-3 priceButtonContainer">
+				<button type="button" class="btn btn-default aPriceButton" id="priceButton2">
+					<div class="oldPrice"></div>
+					<div class="price"></div>
+				</button>
+			</div>
+			<div class="col-sm-3 col-sm-offset-3 priceButtonContainer">
+				<button type="button" class="btn btn-default aPriceButton" id="priceButton3">
+					<div class="oldPrice"></div>
+					<div class="price"></div>
+				</button>
+			</div>
+			<div class="col-sm-3 priceButtonContainer">
+				<button type="button" class="btn btn-default aPriceButton" id="priceButton4">
+					<div class="oldPrice"></div>
+					<div class="price"></div>
+				</button>
+			</div>
+
+		</div>
+
+	</div>
+</div>
