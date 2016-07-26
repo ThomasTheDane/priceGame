@@ -32,13 +32,10 @@ div{
 	font-size: 1.5em;
 }
 
-#READHEREYOU{
+#gameContainer{
 	display: none;
 }
 
-#gameContainer{
-	// display: none;
-}
 
 #productTitleArea{
 	text-align: center;
@@ -51,7 +48,6 @@ div{
 #productImageContainer{
 	text-align: center;
 	margin: 0px;
-	cursor: pointer;
 }
 
 #productImage{
@@ -59,10 +55,33 @@ div{
 	max-width: 500px;
 }
 
+#amazonNotice{
+	background-color: rgb(227, 227, 227);
+	border-radius: 5px;
+	font-size: 1.2em;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	display: none;
+}
+
+#amazonNoticeDismiss{
+	height: 22px;
+	float: right;
+	margin-bottom: 3px;
+	margin-top: 2px;
+	margin-right: 2px;
+	cursor: pointer;
+}
+
 .aPriceButton{
 	height: 70px;
 	margin: 5px;
 	width: 150px;
+	display: none;
 }
 
 #priceButton1, #priceButton3{
@@ -90,4 +109,70 @@ div{
 	font-weight: bold;
 	font-size: 1.5em;
 }
+
+#nextButtonContainer{
+	text-align: center;
+	display: none;
+}
+
+#nextButton{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#gameOverContainer{
+	display: none;
+}
+
+#gameOverTopContainer{
+	text-align: center;
+}
+
+#gameOverTitle{
+	font-size: 4em;
+}
+
+#numCorrect{
+	font-size: 3.5em;
+}
+
+#gameOverProductSummary{
+	// text-align: center;
+}
+
+.summaryContainer{
+	border-radius: 5px;
+	border: 2px solid black;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	color: black;
+}
+
+.summaryImageContainer{
+	text-align: center;
+}
+
+.summaryImage{
+	height: 200px;
+	max-width: 100%;
+	margin-top: 10px;
+}
+
+.summaryTitle{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+	height: 80px;
+	overflow-y: scroll;
+}
+
+.summaryMoneyAmount{
+	text-align: center;
+	font-size: 2.5em;
+	margin-bottom: 10px;
+}
+
+
 

@@ -9,9 +9,14 @@ module.exports.getProduct = function(req, res){
 		{name: "Cell Phones & Accessories", ID: "2335753011"}, //for some reason it gets the non-sale price here 
 		{name: "Tools & Home Improvement", ID:"468240"},
 		{name: "Toys & Games", ID:"165795011"},
+		{name: "Sports & Outdoors", ID:"3375301"},
+		{name: "Patio, Lawn & Garden", ID:"3238155011"},
+		{name: "Office Products", ID:"1084128"},
+		{name: "Musical Instruments	", ID:"11965861"},
 		{name: "", ID:""},
 		{name: "", ID:""},
-		{name: "", ID:""}
+		{name: "", ID:""},
+		{name: "", ID:""},
 	]
 
 	var productCategory = productCategories[Math.floor(Math.random()*productCategories.length)];
@@ -26,18 +31,17 @@ module.exports.getProduct = function(req, res){
 
 	prodAdv = aws.createProdAdvClient(process.env.AWSAccessKeyId, process.env.AWSSecretKey, "nattestad-20");
 
-	prodAdv.call("ItemSearch", {"SearchIndex":"Books", "BrowseNode": 3375301 , "ResponseGroup":"Images,ItemAttributes,Offers", "ItemPage": Math.floor(Math.random()*10)+1}, function(err, result) {
+	prodAdv.call("ItemSearch", {"SearchIndex":"Books", "BrowseNode": 9479199011 , "ResponseGroup":"Images,ItemAttributes,Offers", "ItemPage": Math.floor(Math.random()*10)+1}, function(err, result) {
   	var chosenItem = result.Items.Item[Math.floor(Math.random()*result.Items.Item.length)];
-  	
+
+		console.log(chosenItem);
+
   	while(!chosenItem.Offers.Offer || !chosenItem.Offers.Offer.OfferListing.Price.Amount || !chosenItem.LargeImage || !chosenItem.ItemAttributes.Title || chosenItem.Offers.Offer.OfferListing.Price.Amount < 3){
-  		
-  		console.log(chosenItem.Offers.Offer.OfferListing.Price.Amount)
-	  	chosenItem = result.Items.Item[Math.floor(Math.random()*result.Items.Item.length)];
+ 	  	chosenItem = result.Items.Item[Math.floor(Math.random()*result.Items.Item.length)];
   	}
 
   	var usefulItem = {}
 
-  	console.log(chosenItem.Offers.Offer)
 		
 		usefulItem.showPrice = chosenItem.Offers.Offer.OfferListing.Price.Amount / 100;
   	

@@ -20,21 +20,29 @@
 			</div>
 		</div>
 		
-		<div class="row" id="productImageContainer" >
-			<img src="" id="productImage">
-		</div>
+		<div id="productArea">
+			<div class="row" id="productImageContainer" >
+				<img src="images/loading.gif" id="productImage">
+			</div>
 
-		<div class="row" id="productTitleArea">
-			<div class="col-sm-6 col-sm-offset-3" id="productTitle">
-				
+			<div class="row" id="productTitleArea">
+				<div class="col-sm-6 col-sm-offset-3" id="productTitle">
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3" id="amazonNotice">
+				You can click above to see this product on Amazon
+				<img src="images/fullStrike.png" id="amazonNoticeDismiss">
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-3 col-sm-offset-3 priceButtonContainer">
 				<button type="button" class="btn btn-default aPriceButton" id="priceButton1">
-					<div class="oldPrice">27.00</div>
-					<div class="price">24.40</div>
+					<div class="oldPrice"></div>
+					<div class="price"></div>
 				</button>
 			</div>
 			<div class="col-sm-3 priceButtonContainer">
@@ -55,8 +63,45 @@
 					<div class="price"></div>
 				</button>
 			</div>
-
 		</div>
-
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3" id="nextButtonContainer">
+				<button type="button" class="btn btn-default" id="nextButton">Next</button>
+			</div>
+		</div>
+	</div>
+	<div id="gameOverContainer">
+		<div id="gameOverTopContainer">
+			<h1 id="gameOverTitle">congratulations!</h1>
+			<h4>You got </h4>
+			<h3 id="numCorrect">  </h3>
+			<h4>correct</h4>
+			<h4 id="highScore">High Score: </h4>
+			<h4>Can you do better?</h4>
+			<button type="button" class="btn btn-success" id="playAgainButton">Play Again</button>
+		</div>
+		<div id="gameOverProductSummary">
+			<h2>Products on your run:</h2>
+			<!-- <div class="col-md-3 summaryContainer">
+				<div class="summaryImageContainer">
+					<img src="http://ecx.images-amazon.com/images/I/41q8ntp6nqL.jpg" class="summaryImage">
+				</div>
+				<div class="summaryTitle">
+					New Balance Men's MX608V4 Training Shoe,White/Navy,11 4E US
+				</div>
+				<div class="summaryMoneyAmount">
+					$27.20
+				</div>
+			</div> -->
+		</div>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
