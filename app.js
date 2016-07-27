@@ -6,7 +6,7 @@ var logger = require("morgan");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var mongoose = require("mongoose");
+// var mongoose = require("mongoose");
 var amazon = require('amazon-product-api');
 
 var index = require("./routes/index");
