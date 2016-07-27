@@ -1,14 +1,28 @@
 <link rel="stylesheet" type="text/css" href="css/home.css">
 
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-48136927-4', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
 <script src="js/home.js"></script>
 
 <div class="container">
 	<h1 class="title">Price Quizzer</h1>
 	<div id="startGameContainer">
 
-		<div id="instructions">Guess what these items sell for on Amazon. Get as many right before getting 3 wrong</div>
+		<div id="instructions">Guess what these items sell for on Amazon. Get as many right as you can before getting 3 wrong</div>
 
 		<button type="button" id="startSoloGame" class="btn btn-success">Start a Game</button>
+		<br>
+		<br>
+		<img src="images/productsTitle.png" id="startGameTitleImage">
 	</div>
 	<div id="gameContainer">
 		<div class="row" id="gameTop">
