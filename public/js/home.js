@@ -2,10 +2,13 @@ var productLink;
 var score = 0;
 var strikes = 0;
 var showAmazonNotice = true;
+if(localStorage.getItem("showAmazonNotice") == "no"){
+	showAmazonNotice = false;
+}
 var hasGuessed = false;
 var lost = false;
 var allProductsForRun = [];
-var highScore = 0;
+var highScore = localStorage.getItem("highScore") || 0;
 
 $(document).ready(function(){
 	$('#startSoloGame').click(function(){
@@ -25,6 +28,7 @@ $(document).ready(function(){
 
 	$("#amazonNoticeDismiss").click(function(){
 		showAmazonNotice = false;
+		localStorage.setItem("showAmazonNotice", "no");
 		$("#amazonNotice").slideUp();
 	});
 
@@ -79,7 +83,7 @@ function startGame(){
 
 	$("#gameContainer").slideDown();
 
-	$("#gameOverProductSummary").html("<h2>Products on your run:</h2>");
+	$("#gameOverProductSummary").html('<h2>Products on your run:</h2> <h5 id="summaryAmazonInstructions">Click item to see amazon page</h5>');
 	$("#gameOverContainer").hide();
 
 	clearField()
@@ -112,10 +116,11 @@ function gameOver(){
 	$("#numCorrect").html(score);
 	if(score > highScore){
 		highScore = score;
+		localStorage.setItem('highScore', highScore);
 	}
 	$("#highScore").html("High Score: " + highScore)
 	for (var i = 0; i < allProductsForRun.length; i++) {
-		console.log(renderProductSummary(allProductsForRun[i]));
+		// console.log(renderProductSummary(allProductsForRun[i]));
 		$("#gameOverProductSummary").append(renderProductSummary(allProductsForRun[i]))
 	}
 		
@@ -143,59 +148,79 @@ function loadNewProduct(){
 		}
 
 		var possibleScales = []
-		if(price < 5){
-			// console.log("<5")
-			possibleScales[0] = 1;
-			possibleScales[1] = 2;
-			possibleScales[2] = 4;
-		}else if(price < 10){
+		if(price < 10){
 			// console.log("<10")
-			possibleScales[0] = 5;
-			possibleScales[1] = 7;
-			possibleScales[2] = 9;
+			possibleScales[0] = 2;
+			possibleScales[1] = 4;
+			possibleScales[2] = 6;
+			possibleScales[3] = 8;
 		}else if(price < 20){
 			// console.log("<20")
 			possibleScales[0] = 8;
 			possibleScales[1] = 12;
 			possibleScales[2] = 15;
+			possibleScales[3] = 5;
 		}else if(price < 40){
 			// console.log("<40")
-			possibleScales[0] = 10;
-			possibleScales[1] = 15;
-			possibleScales[2] = 30;
+			possibleScales[0] = 12;
+			possibleScales[1] = 18;
+			possibleScales[2] = 22;
+			possibleScales[3] = 7;
 		}else if(price < 60){
-			possibleScales[0] = 15;
-			possibleScales[1] = 20;
-			possibleScales[2] = 35;
+			possibleScales[0] = 17;
+			possibleScales[1] = 25;
+			possibleScales[2] = 32;
+			possibleScales[3] = 10;
 		}else if(price < 80){
-			possibleScales[0] = 20;
-			possibleScales[1] = 30;
-			possibleScales[2] = 40;
+			possibleScales[0] = 15;
+			possibleScales[1] = 23;
+			possibleScales[2] = 30;
+			possibleScales[3] = 9;
+		}else if(price < 110){
+			possibleScales[0] = 15;
+			possibleScales[1] = 34;
+			possibleScales[2] = 45;
+			possibleScales[3] = 25;
 		}else if(price < 150){
+			possibleScales[0] = 29;
+			possibleScales[1] = 35;
+			possibleScales[2] = 45;
+			possibleScales[3] = 18;
+		}else if(price < 200){
 			possibleScales[0] = 30;
-			possibleScales[1] = 50;
-			possibleScales[2] = 70;
-		}else if(price < 250){
-			possibleScales[0] = 50;
-			possibleScales[1] = 80;
-			possibleScales[2] = 100;
+			possibleScales[1] = 45;
+			possibleScales[2] = 90;
+			possibleScales[3] = 65;
 		}else{
 			possibleScales[0] = 50;
 			possibleScales[1] = 100;
 			possibleScales[2] = 200;			
+			possibleScales[3] = 150;
 		}
 		// console.log("correctbox ", correctBox)
 		var pickedPrices = [price];
+
+		var numberThatShouldBeBelow = Math.floor(Math.random()*4)
+		var numberThatShouldBeAbove = 3 - numberThatShouldBeBelow;
+		var numberAbove = 0;
+		var numberBelow = 0;
+
 		for (var i = 1; i <= 4; i++) {
 			if(i != correctBox){
 				// console.log("I ", i);
 
+				var attemptCount = 0;
 				var alreadyPicked = false;
+
 				do{
+					attemptCount = attemptCount + 1;
+
 					// console.log("picked prices: ", pickedPrices);
 					var offset = possibleScales[Math.floor(Math.random()*3)];
-					if(Math.random() < .5){
-						offset = offset * -1;
+					if(attemptCount < 100){
+						if(numberBelow < numberThatShouldBeBelow){
+							offset = offset * -1;
+						}
 					}
 					// console.log("proposing: ", price + offset);
 

@@ -17,7 +17,7 @@ var app = express();
 dotenv.load({ path: '.env' });
 
 var PORT = process.env.PORT || 3000;
-var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
+// var mongoURI = process.env.MONGOURI || "mongodb://localhost/test";
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.get("/", index.home);
 app.get("/aProduct/:type", amazonApi.getProduct)
 
-mongoose.connect(mongoURI);
+// mongoose.connect(mongoURI);
 
 app.listen(PORT, function() {
   console.log("Application running on port:", PORT);
