@@ -35,7 +35,7 @@ module.exports.getProduct = function(req, res){
 	prodAdv.call("ItemSearch", {"SearchIndex":"Books", "BrowseNode": productCategory.ID , "ResponseGroup":"Images,ItemAttributes,Offers", "ItemPage": Math.floor(Math.random()*10)+1}, function(err, result) {
   	var chosenItem = result.Items.Item[Math.floor(Math.random()*result.Items.Item.length)];
 
-		console.log(chosenItem);
+		//console.log(chosenItem);
 
   	while(!chosenItem.Offers.Offer || !chosenItem.Offers.Offer.OfferListing.Price.Amount || !chosenItem.LargeImage || !chosenItem.ItemAttributes.Title || chosenItem.Offers.Offer.OfferListing.Price.Amount < 5){
  	  	chosenItem = result.Items.Item[Math.floor(Math.random()*result.Items.Item.length)];
